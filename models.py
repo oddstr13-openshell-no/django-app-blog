@@ -12,6 +12,7 @@ class Post(models.Model):
     user        = models.ForeignKey(User, on_delete=models.PROTECT, related_name="posts")
     published   = models.DateTimeField(blank=True, null=True) # Check this before showing
     tags        = TaggableManager(blank=True)
+    frontpage   = models.BooleanField(default=False)
     
     def save(self):
         if not self.id:

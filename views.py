@@ -7,15 +7,17 @@ import datetime
 from blog.models import Post
 
 def index(request):
-    posts = Post.objects.filter(published__lte=datetime.datetime.now()).order_by('-published')
+    posts = Post.objects.filter(frontpage=True).filter(published__lte=datetime.datetime.now()).order_by('-published')
     
     return render(request, 'blog/index.html', {'posts': posts})
 
 def by_tag(request, tag):
     posts = Post.objects.filter(tags__name__in=[tag]).filter(published__lte=datetime.datetime.now()).order_by('-published')
     
-    return render(request, 'blog/by_tag.html', {'posts':posts})
+    return render(request, 'blog/by_tag.html', {'posts': posts})
 
 def post(request, id):
-    pass
+    _post = get_object_or_404(Post, id=id)
+    
+    return render(request, 'blog/post.html', {'post': _post, 'lpost': [_post]})
     

@@ -16,7 +16,7 @@
     {% for post in posts %}
     <div class="blogpost">
         <div class="blogpost_header">
-            <h1>{{post.title}}</h1>
+            <a href="{% url 'blog.views.post' post.id %}" title="{{ post.title }}"><h2>{{post.title}}</h2></a>
         </div>
         <div class="blogpost_body">
             {{ post.text|creole }}
