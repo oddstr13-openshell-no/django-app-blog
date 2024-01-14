@@ -1,7 +1,9 @@
-from django.conf.urls import patterns, include, url
+from django.conf.urls import url
 
-urlpatterns = patterns('blog.views',
-    url(r'^$',                  'index'),
-    url(r'^post/(?P<id>.+)/$',  'post'),
-    url(r'^tag/(?P<tag>.+)/$',  'by_tag'),
-)
+from . import views
+
+urlpatterns = [
+    url(r'^$',                  views.index),
+    url(r'^post/(?P<id>.+)/$',  views.post),
+    url(r'^tag/(?P<tag>.+)/$',  views.by_tag),
+]
