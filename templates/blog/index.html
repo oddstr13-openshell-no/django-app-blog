@@ -1,16 +1,16 @@
 {% extends "base.html" %}
 
 {% load thumbnail %}
-{% load taggit_extras %}
+{#% load taggit_extras %#}
 {% load blog %}
 
 {% block head %}
 {% endblock %}
 
 {% block content %}
-    {% get_tagcloud as tags for 'blog.Post' %}
+    {#% get_tagcloud as tags for 'blog.Post' %#}
     <ul class="tagcloud">
-{% for tag in tags %}<li class="item s{{tag.weight|floatformat:0}}"><a href="{% url 'blog.views.by_tag' tag %}">{{tag}}</a></li>{% endfor %}
+{#% for tag in tags %}<li class="item s{{tag.weight|floatformat:0}}"><a href="{% url 'blog.views.by_tag' tag %}">{{tag}}</a></li>{% endfor %#}
     </ul>
     
     {% for post in posts %}
@@ -24,7 +24,7 @@
         <div class="blogpost_footer">
             by {{post.user}}, {{post.published}}
             <ul class="taglist">
-                {% for tag in post.tags.all %}<li class="item"><a href="{% url 'blog.views.by_tag' tag %}">{{tag}}</a></li>{% endfor %}
+                {#% for tag in post.tags.all %}<li class="item"><a href="{% url 'blog.views.by_tag' tag %}">{{tag}}</a></li>{% endfor %#}
             </ul>
         </div>
     </div>
