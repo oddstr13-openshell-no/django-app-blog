@@ -23,5 +23,5 @@ class Post(models.Model):
         
         super(Post, self).save()
     
-    def __unicode__(self):
+    def __str__(self):
         return self.title

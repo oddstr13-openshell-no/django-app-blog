@@ -10,7 +10,7 @@
 {% block content %}
     <h1>{{post.title}}</h1>
     <div class="blogpost_body">
-        {{ post.text|creole }}
+        {{ post.text|creole|safe }}
     </div>
     <div class="blogpost_footer">
         by {{post.user}}, {{post.published}}

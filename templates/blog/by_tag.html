@@ -16,7 +16,7 @@
     {% for post in posts %}
     <a href="{% url 'blog-post' post.id %}" title="{{ post.title }}"><h2>{{post.title}}</h2></a>
     <div class="blogpost_body">
-        {{ post.text|creole }}
+        {{ post.text|creole|safe }}
     </div>
     <div class="blogpost_footer">
         by {{post.user}}, {{post.published}}
