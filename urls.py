@@ -1,9 +1,9 @@
-from django.conf.urls import url
+from django.urls import re_path
 
 from . import views
 
 urlpatterns = [
-    url(r'^$',                  views.index),
-    url(r'^post/(?P<id>.+)/$',  views.post, name='blog-post'),
-    url(r'^tag/(?P<tag>.+)/$',  views.by_tag, name='blog-by-tag'),
+    re_path(r'^$',                  views.index),
+    re_path(r'^post/(?P<id>.+)/$',  views.post, name='blog-post'),
+    re_path(r'^tag/(?P<tag>.+)/$',  views.by_tag, name='blog-by-tag'),
 ]

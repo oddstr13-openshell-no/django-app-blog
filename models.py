@@ -1,8 +1,8 @@
 from django.db import models
 from django.contrib.auth.models import User
+from django.utils import timezone
 
 from taggit.managers import TaggableManager
-import datetime
 
 
 
@@ -19,7 +19,7 @@ class Post(models.Model):
             pass # Not created yet
         
         if self.published is None:
-            self.published = datetime.datetime.now()
+            self.published = timezone.now()
         
         super(Post, self).save()
     
