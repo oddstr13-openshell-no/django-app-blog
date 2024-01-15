@@ -6,6 +6,7 @@ from creole import parse
 
 register = template.Library()
 
-@register.filter(name='creole')
+
+@register.filter(name="creole")
 def creoleparse(value):
     return mark_safe(parse(value))
