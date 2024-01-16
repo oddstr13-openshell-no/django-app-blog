@@ -18,6 +18,7 @@ def index(request):
 
 
 def by_tag(request, tag):
+    from taggit_templatetags.templatetags import taggit_extras
     posts = (
         Post.objects.filter(tags__name__in=[tag])
         .filter(published__lte=timezone.now())
